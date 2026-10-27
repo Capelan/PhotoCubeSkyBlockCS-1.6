@@ -1,0 +1,61 @@
+.cube {
+  position: absolute;
+  /* Размер куба + перекрытие углов экрана с запасом */
+  width: 120vmin;
+  height: 120vmin;
+  top: 50%;
+  left: 50%;
+  margin-left: -60vmin;
+  margin-top: -60vmin;
+  transform-style: preserve-3d;
+  transform: rotateX(0deg) rotateY(0deg);
+  will-change: transform;
+}
+
+.face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Грани соответствуют размеру куба */
+  width: 120vmin;
+  height: 120vmin;
+  background-size: cover;
+  background-position: center;
+  /* Прячем обратную сторону и убираем мерцание */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden; 
+}
+
+/* 
+  Каждой грани добавлен scale(1.01), чтобы они заходили друг на друга на 1%,
+  убирая черные щели на стыках. translateZ изменен на 60vmin (половина от 120)
+*/
+.front {
+  background-image: url('../../images/1757776498.png');
+  transform: rotateY(180deg) translate3d(0, 0, 60vmin) scale(1.01); 
+}
+
+.back {
+  background-image: url('../../images/1757776498.png');
+  transform: rotateY(0deg) translate3d(0, 0, 60vmin) scale(1.01);
+}
+
+.right {
+  background-image: url('../../images/1757776498.png');
+  transform: rotateY(90deg) translate3d(0, 0, 60vmin) scale(1.01);
+}
+
+.left {
+  background-image: url('../../images/1757776498.png');
+  transform: rotateY(-90deg) translate3d(0, 0, 60vmin) scale(1.01);
+}
+
+.top {
+  background-image: url('../../images/1757776498.png');
+  transform: rotateX(-90deg) translate3d(0, 0, 60vmin) scale(1.01);
+}
+
+.bottom {
+  background-image: url('../../images/1757776498.png');
+  transform: rotateX(90deg) translate3d(0, 0, 60vmin) scale(1.01);
+}
